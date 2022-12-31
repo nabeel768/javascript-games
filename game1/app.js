@@ -45,7 +45,7 @@ function getResult(){
     result='you lose!'
   }
   if(computerChoice=== 'scissors' && userChoice==='rock'){
-    result='you lose!'
+    result='you win!'
   }
   if(computerChoice=== 'scissors' && userChoice==='paper'){
     result='you lose!'

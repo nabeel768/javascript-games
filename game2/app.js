@@ -30,7 +30,7 @@
     },
     {
       name: 'cheeseburger',
-      img: 'images/cheeseburger.png'
+      img: 'images/burger.png'
     },
     {
       name: 'ice-cream',

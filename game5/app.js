@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const squares = document.querySelectorAll('.grid div')
-  const result = document.querySelector('#result')
-  const displayCurrentPlayer = document.querySelector('#current-player')
-  let currentPlayer = 1
+  const squares = document.querySelectorAll('.grid div');
+  const result = document.querySelector('#result');
+  const displayCurrentPlayer = document.querySelector('#current-player');
+  let currentPlayer = 1;
 
-const winningArrays=[
-  [0, 1, 2, 3],
+  const winningArrays = [
+    [0, 1, 2, 3],
     [41, 40, 39, 38],
     [7, 8, 9, 10],
     [34, 33, 32, 31],
@@ -74,32 +74,41 @@ const winningArrays=[
     [11, 18, 25, 32],
     [12, 19, 26, 33],
     [13, 20, 27, 34],
-]
+  ];
 
-function checkBoard(){
-
-}
+  function checkBoard() {
+    for (let y = 0; y < winningArrays.length; y++) {
+      const square1 = squares[winningArrays[y][0]];
+      const square2 = squares[winningArrays[y][1]];
+      const square3 = squares[winningArrays[y][2]];
+      const square4 = squares[winningArrays[y][3]];
+    }
+    if (
+      square1.classList.contains('player-one') &&
+      square2.classList.contains('player-one') &&
+      square3.classList.contains('player-one') &&
+      square4.classList.contains('player-one')
+    ) 
+     {
+    }
+  }
 
   for (let i = 0; i < squares.length; i++) {
     squares[i].onclick = () => {
-      if (squares[i + 7].classList.contains('taken') &&!squares[i].classList.contains('taken')) {
+      if (squares[i + 7].classList.contains('taken') && !squares[i].classList.contains('taken')) {
         if (currentPlayer == 1) {
-          squares[i].classList.add('taken')
-          squares[i].classList.add('player-one')
-          currentPlayer = 2
-          displayCurrentPlayer.innerHTML = currentPlayer
-        } else if (currentPlayer == 2){
-          squares[i].classList.add('taken')
-          squares[i].classList.add('player-two')
-          currentPlayer = 1
-          displayCurrentPlayer.innerHTML = currentPlayer        
-        } 
-      } else alert('cant go here')
-      checkBoard()
-    }
+          squares[i].classList.add('taken');
+          squares[i].classList.add('player-one');
+          currentPlayer = 2;
+          displayCurrentPlayer.innerHTML = currentPlayer;
+        } else if (currentPlayer == 2) {
+          squares[i].classList.add('taken');
+          squares[i].classList.add('player-two');
+          currentPlayer = 1;
+          displayCurrentPlayer.innerHTML = currentPlayer;
+        }
+      } else alert('cant go here');
+      checkBoard();
+    };
   }
-  
-})
-
-
-
+});
